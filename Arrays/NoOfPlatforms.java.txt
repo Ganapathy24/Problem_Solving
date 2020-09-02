@@ -1,0 +1,40 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class NoOfPlatforms
+ {
+	public static void main (String[] args)
+	 {
+	 Scanner sc = new Scanner(System.in);
+     int T = sc.nextInt();
+     while(T-- > 0){
+         int N = sc.nextInt();
+         ArrayList<Integer> arrival = new ArrayList<Integer>();
+         ArrayList<Integer> depart  = new ArrayList<Integer>();
+         for(int i = 0;i<N;i++)
+         {
+             arrival.add(sc.nextInt());
+         }
+         for(int j = 0;j < N;j++)
+         {
+             depart.add(sc.nextInt());
+         }
+         Collections.sort(arrival);
+         Collections.sort(depart);
+         int i = 1, j = 0;
+         int count = 0,max = 0;
+         while(i < N)
+         {
+             count +=1;
+             max = Math.max(count,max);
+             while(arrival.get(i) > depart.get(j)){
+             count -=1;
+             j++;
+             }
+             i++;
+         }
+         System.out.println(max);
+         
+     }
+	 }
+}
